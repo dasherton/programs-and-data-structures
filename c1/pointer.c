@@ -1,3 +1,5 @@
+/* pointer.c: Use a pointer as an array */
+
 #include <stdio.h>
 #include <stdlib.h>
 
