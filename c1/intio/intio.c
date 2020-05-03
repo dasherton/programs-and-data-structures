@@ -38,8 +38,28 @@ int readint(FILE *fp, int *n)
   return OK;
 }
 
+#define CHARBUFSIZE 50
+#define putchr(ch) if (putc(ch, fp) == EOF) return EOF;
+
 int writeint(FILE *fp, int w, int x)
 {
-  puts("writeint()");
+  int n = 0, i, r, neg = x < 0;
+  char digs[CHARBUFSIZE];
+
+  if (x==0) { digs[0] = '0'; n = 1; } else
+  do
+  {
+    r = x % 10;
+    digs[n++] = '0' + (neg ? -r : r);
+    if (n==CHARBUFSIZE) return OVFLOW; /* Unlikely ot occur */
+    x /= 10;
+  } while (x);
+  i = w - n;
+  if (neg) --i;
+  while(i-- > 0) putchr(' ');
+  if (neg) putchr('-');
+  for(i = n-1; i >= 0 ; --i) putchr(digs[i]);
+
+  return OK;
 }
 
