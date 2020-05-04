@@ -26,8 +26,8 @@ int readint(FILE *fp, int *n)
     d = ch - '0';
     if (neg) d = -d;
     
-    if ((neg && i < (INT_MAX-d)/10) ||
-        (!neg && i > (INT_MIN-d)/10))
+    if ((neg && i < (INT_MIN-d)/10) ||
+        (!neg && i > (INT_MAX-d)/10))
       return OVFLOW;
   
     i = 10 * i + d;    
