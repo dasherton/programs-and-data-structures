@@ -9,4 +9,3 @@
 
 int readint(FILE *fp, int *n);
 int writeint(FILE *fp, int w, int x);
-
