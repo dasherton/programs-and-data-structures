@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-Wall -Werror
-BINS=test intcpy
+BINS=test intcpy intcpy_
 
 all: $(BINS)
 
@@ -16,5 +16,8 @@ test: test.c libintio.o
 intcpy: libintio.o intcpy.c
 	$(CC) $(CFLAGS) $^ -o $@
 
+intcpy_: intcpy.c libintio.so
+	$(CC) $(GCC) $^ -L. -lintio -o $@
+
 clean:
-	rm -f *.o  *.so $(BINS)
+	rm -f *.o *.so $(BINS)
