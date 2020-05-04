@@ -28,9 +28,14 @@ int main(int argc, char *argv[])
 
   while ((status = readint(fin, &x)) == OK)
   {
-    /*writeint(fout, 0, x); */
+    if (writeint(fout, 0, x) != OK)
+    {
+      puts("Output error");
+      exit(3);
+    }
     fprintf(fout, " ");
   }
+  fprintf(fout, "\n");
 
   if (status == OVFLOW) puts("Integer overflow"), exit(2);
   if (status == INVALID) puts("Invalid character read"), exit(2);
