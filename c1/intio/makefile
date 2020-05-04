@@ -1,6 +1,8 @@
 CC=gcc
 CFLAGS=-Wall -Werror
 
+all: test intcpy
+
 test:
 	$(CC) $(FLAGS) test.c intio.c -o intio.exe
 
