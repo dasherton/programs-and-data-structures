@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Clean all binaries and intermediate files
+make clean
+
+# Clean files create by run_intcpy_
+rm -f nums2.txt
