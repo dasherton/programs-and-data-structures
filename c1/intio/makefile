@@ -1,5 +1,7 @@
+CC=gcc
+
 test:
-	gcc test.c intio.c -o intio.exe
+	$(CC) test.c intio.c -o intio.exe
 
 intcpy:
-	gcc intio.c intcpy.c -o intcpy.exe
+	$(CC) intio.c intcpy.c -o intcpy.exe
