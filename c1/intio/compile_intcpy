@@ -1,4 +1,0 @@
-#!/bin/bash
-
-gcc intcpy.c intio.c -o intcpy
-
