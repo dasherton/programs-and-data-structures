@@ -5,6 +5,7 @@ project(intio)
 set(intio_lib_name intio)
 set(intio_static_lib_name ${intio_lib_name}static)
 set(test_exec_name intiotest)
+set(intcpy_exec_name intcpy)
 
 add_library(
     ${intio_static_lib_name} STATIC
@@ -25,4 +26,15 @@ target_link_libraries(
     ${test_exec_name}
     PRIVATE
     ${intio_lib_name}
+)
+
+add_executable(
+    ${intcpy_exec_name}
+    intcpy.c
+)
+
+target_link_libraries(
+    ${intcpy_exec_name}
+    PRIVATE
+    ${intio_static_lib_name}
 )
