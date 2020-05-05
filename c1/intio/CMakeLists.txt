@@ -3,19 +3,26 @@ cmake_minimum_required(VERSION 3.0)
 project(intio)
 
 set(intio_lib_name intio)
+set(intio_static_lib_name ${intio_lib_name}static)
+set(test_exec_name intiotest)
 
 add_library(
-    ${intio_lib_name}
+    ${intio_static_lib_name} STATIC
+    intio.c
+)
+
+add_library(
+    ${intio_lib_name} SHARED
     intio.c
 )
 
 add_executable(
-    intiotest
+    ${test_exec_name}
     test.c
 )
 
 target_link_libraries(
-    intiotest
+    ${test_exec_name}
     PRIVATE
     ${intio_lib_name}
 )
