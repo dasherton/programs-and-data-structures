@@ -2,8 +2,10 @@ cmake_minimum_required(VERSION 3.0)
 
 project(intio)
 
+set(intio_lib_name intio)
+
 add_library(
-    intio
+    ${intio_lib_name}
     intio.c
 )
 
@@ -15,5 +17,5 @@ add_executable(
 target_link_libraries(
     intiotest
     PRIVATE
-    intio
+    ${intio_lib_name}
 )
