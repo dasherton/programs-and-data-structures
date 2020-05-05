@@ -2,15 +2,12 @@ cmake_minimum_required(VERSION 3.0)
 
 project(intio)
 
-set(intio_lib_name intio)
-set(intio_static_lib_name ${intio_lib_name}static)
-set(test_exec_name intiotest)
-set(intcpy_exec_name intcpy)
-set(intcpy_shared_exec_name ${intcpy_exec_name}_)
-
 ###################
 # Compile libraries
 ###################
+
+set(intio_lib_name intio)
+set(intio_static_lib_name ${intio_lib_name}static)
 
 add_library(
     ${intio_static_lib_name} STATIC
@@ -25,6 +22,8 @@ add_library(
 #####################
 # Compile test binary
 #####################
+
+set(test_exec_name intiotest)
 
 add_executable(
     ${test_exec_name}
@@ -41,6 +40,8 @@ target_link_libraries(
 # Compile intcpy using static lib
 #################################
 
+set(intcpy_exec_name intcpy)
+
 add_executable(
     ${intcpy_exec_name}
     intcpy.c
@@ -55,6 +56,8 @@ target_link_libraries(
 #################################
 # Compile intcpy using shared lib
 #################################
+
+set(intcpy_shared_exec_name ${intcpy_exec_name}_)
 
 add_executable(
     ${intcpy_shared_exec_name}
