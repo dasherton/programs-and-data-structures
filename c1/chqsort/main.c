@@ -1,3 +1,7 @@
+/* chqsort.c: Use quick sort algorithm to sort the strings contained
+ *            in an input file and write them to an output file
+ */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
