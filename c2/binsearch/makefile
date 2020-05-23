@@ -1,8 +1,8 @@
 CC=gcc
 CFLAGS=-Wall -Werror
 
-binsearch: binsearch.c
-	$(CC) $(CFLAGS) $^ -o $@
+binsearch.o: binsearch.c
+	$(CC) -c $(CFLAGS) $^ -o $@
 
 clean:
-	rm -f binsearch
+	rm -f binsearch.o
