@@ -7,5 +7,8 @@ binsearch.o: binsearch.c
 binsearch_example: binsearch.o binsearch_example.c
 	$(CC) $(CFLAGS) $^ -o $@
 
+binsearch_test: binsearch.o binsearch_test.c
+	$(CC) $(CFLAGS) $^ -o $@
+
 clean:
-	rm -f binsearch.o binsearch_example
+	rm -f binsearch.o binsearch_example rm binsearch_test
