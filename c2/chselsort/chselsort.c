@@ -10,26 +10,26 @@
 
 void chselsort(char **strings, int n)
 {
-	char *p, min[BUFLEN];
+	char *pmin, min[BUFLEN];
 	int i, j;
 
 	for (i = 0; i < n - 1; ++i)
 	{
-		p = strings[i];
+		pmin = strings[i];
 
 		for (j = i + 1; j < n; ++j)
 		{
-			if (strcmp(strings[j], p) < 0)
+			if (strcmp(strings[j], pmin) < 0)
 			{
-				p = strings[j];
+				pmin = strings[j];
 			}
 		}
 		/*
-		 * Exchange the character sequence starting at p
+		 * Exchange the character sequence starting at pmin
 		 * with that starting at strings[i]
 		 */
-		strcpy(min, p);
-		strcpy(p, strings[i]);
+		strcpy(min, pmin);
+		strcpy(pmin, strings[i]);
 		strcpy(strings[i], min);
 	}
 }
