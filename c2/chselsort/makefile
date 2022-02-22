@@ -8,7 +8,7 @@ all: $(BIN)
 chselsort: chselsort.c
 	$(CC) $(CFLAGS) $^ -o $@
 
-sort: chselsort
+sort: $(BIN)
 	./$(BIN) input.txt $(OUTPUT)
 
 clean:
