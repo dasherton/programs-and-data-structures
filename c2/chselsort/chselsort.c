@@ -10,29 +10,27 @@
 
 void chselsort(char **strings, int n)
 {
-	char *p, tmp[BUFLEN];
+	char *p, min[BUFLEN];
 	int i, j;
 
-	for (i = 0; i < n; ++i)
+	for (i = 0; i < n - 1; ++i)
 	{
 		p = strings[i];
 
-		for (j = i + 1; j < n - 1; ++j)
+		for (j = i + 1; j < n; ++j)
 		{
 			if (strcmp(strings[j], p) < 0)
 			{
 				p = strings[j];
 			}
-
-			/*
-			 * Exchange the character sequence starting at p
-			 * with that starting at strings[i]
-			 */
-
-			strcpy(tmp, p);
-			strcpy(p, strings[i]);
-			strcpy(strings[i], tmp);
 		}
+		/*
+		 * Exchange the character sequence starting at p
+		 * with that starting at strings[i]
+		 */
+		strcpy(min, p);
+		strcpy(p, strings[i]);
+		strcpy(strings[i], min);
 	}
 }
 
